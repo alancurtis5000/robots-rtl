@@ -3,15 +3,13 @@ import React from 'react'
 import { render as rtlRender } from '@testing-library/react'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-// Import your own reducer
-import reducer from '../reducers'
-
+import rootReducer from '../redux/root.reducer';
 
 function render(
   ui,
   {
     initialState,
-    store = createStore(reducer, initialState),
+    store = createStore(rootReducer, initialState),
     ...renderOptions
   } = {}
 ) {
