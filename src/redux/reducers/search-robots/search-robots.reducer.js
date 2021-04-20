@@ -1,4 +1,4 @@
-import types from './search-robots.types';
+import {types} from './search-robots.types';
 
 const initialStateSearch = {
     searchField: ''
@@ -13,3 +13,5 @@ export const searchRobotsReducer = (state=initialStateSearch, action={}) => {
         return state
     }
   }
+
+  export default searchRobotsReducer;

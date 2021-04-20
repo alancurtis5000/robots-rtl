@@ -1,19 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import React from "react";
+import { render } from "react-dom";
 import 'tachyons';
-
-import App from './containers/App';
-// import registerServiceWorker from './registerServiceWorker';
-
 import './index.css'; 
+import App from './containers/App';
+import { Provider } from "react-redux";
+import configureAppStore from "./redux/configure-store";
 
-// TODO: setup store config file
+const store = configureAppStore();
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
-  document.getElementById('root')
-);
-// registerServiceWorker();
+const renderApp = () =>
+  render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+
+if (process.env.NODE_ENV !== "production" && module.hot) {
+  module.hot.accept("./containers/App", renderApp);
+}
+
+renderApp();

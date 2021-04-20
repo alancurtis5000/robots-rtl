@@ -1,5 +1,5 @@
-import { apiCall } from './api/api'
-import types from './request-robots.types';
+import { apiCall } from '../../../api/api';
+import {types} from './request-robots.types';
 
 export const requestRobots = (dispatch) => {
     dispatch({ type: types.REQUEST_ROBOTS_PENDING })

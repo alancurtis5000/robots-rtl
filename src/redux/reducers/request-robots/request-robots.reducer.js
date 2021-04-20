@@ -1,11 +1,11 @@
-import types from './search-robots.types';
+import {types} from './request-robots.types';
 
 const initialStateRobots = {
   robots: [],
   isPending: true
 }
 
-export const requestRobots = (state=initialStateRobots, action={}) => {
+export const requestRobotsReducer = (state=initialStateRobots, action={}) => {
   switch (action.type) {
     case types.REQUEST_ROBOTS_PENDING:
       return Object.assign({}, state, {isPending: true})
@@ -17,3 +17,5 @@ export const requestRobots = (state=initialStateRobots, action={}) => {
       return state
   }
 }
+
+export default requestRobotsReducer
